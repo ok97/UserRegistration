@@ -2,11 +2,18 @@
 using System.Text.RegularExpressions;
 
 namespace User_Registration_Problem
-{  /*  UC4:- As a User need to follow pre -defined Mobile Format 
-       - E.g. 91 9919819801 - Country code follow by space and 10 digit number
+{  /*  UC5:- As a User need to follow pre-defined Password rules.
+       Rule1 – minimum 8
+       Characters - NOTE – All rules must be passed
    */
     class UserRegistration
     {
+        public static bool passwordValidation(String password)
+        {
+            String patternPassword = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+            Regex Passregex = new Regex(patternPassword);
+            return Passregex.IsMatch(password);
+        }
         public static bool PhoneNumberValidation(String Pno)
         {
             String PPattern = @"^\+?\d{0,2}\-?\d{4,5}\-?\d{5,6}"; //Define Phone Number Pattern
@@ -76,6 +83,18 @@ namespace User_Registration_Problem
             else
             {
                 Console.WriteLine("Invalid Phone Number");
+            }
+
+            Console.WriteLine("Enter the Password:- ");
+            String password = Console.ReadLine();
+
+            if (passwordValidation(password))
+            {
+                Console.WriteLine("Valid Password");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Password");
             }
         }
     }
