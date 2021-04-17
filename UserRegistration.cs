@@ -2,9 +2,9 @@
 using System.Text.RegularExpressions;
 
 namespace User_Registration_Problem
-{  /*  UC6:- As a User need to follow pre-defined Password rules.
-       Rule2 – Should have at least 1 Upper Case
-       - NOTE – All rules must be passed
+{  /*  UC7:- As a User need to follow pre-defined Password rules.
+       Rule3 – Should have at least 1 numeric number in the password 
+       - NOTE – All rules must be passed      
    */
     class UserRegistration
     {
