@@ -11,7 +11,7 @@ namespace User_Registration_Problem
         {
             String Epattern = @"^[a-z]+([-+*.]?[0-9a-z])*@[a-z0-9]+\.(\.?[a-z]{2,}){1,2}$"; //Define Email Pattern
             Regex eregex = new Regex(Epattern); //create object of the Regex class (its Regesx predefine class)
-            return eregex.IsMatch(Epattern);
+            return eregex.IsMatch(email);
 
         }
         public static bool NameValidation(String firstName)
