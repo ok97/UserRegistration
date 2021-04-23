@@ -1,0 +1,17 @@
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\UnitTestUserRegistrationProblem.dll
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\UnitTestUserRegistrationProblem.pdb
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\User Registration Problem.exe
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\User Registration Problem.pdb
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\User Registration Problem.exe.config
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\obj\Debug\UnitTestUserRegistrationProblem.csprojAssemblyReference.cache
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\obj\Debug\UnitTestUserRegistrationProblem.csproj.CoreCompileInputs.cache
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\obj\Debug\UnitTestUserRegistrationProblem.csproj.CopyComplete
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\obj\Debug\UnitTestUserRegistrationProblem.dll
+D:\Practice\C#\User Registration Problem\UnitTestUserRegistrationProblem\obj\Debug\UnitTestUserRegistrationProblem.pdb
