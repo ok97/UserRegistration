@@ -74,6 +74,39 @@ namespace UnitTestUserRegistrationProblem
 
         }
 
+        // Valid Phone Number
+        [TestMethod]
+        [DataRow("+918788616249", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("8788616249", true)]
+        //[DataRow("abc.@gmail.com", true)]
+        public void UnitTestPatternValidation_ValidPhoneNumber(string Phone, bool expected)
+        {
+            string Phonepattern = @"^\+?\d{0,2}\-?\d{4,5}\-?\d{5,6}"; //Define Pattern 
+            bool actual = Program.PatternValidation(Phone, Phonepattern); //passing parameter
+
+            Assert.AreEqual(expected, actual);  // section verifies that the action of the method under test behaves as expected.
+        }
+
+
+        // Invalid Phone Number
+        [TestMethod]
+        [DataRow("12", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("12345", "Invalid")]        
+        public void UnitTestPatternValidation_InValidPhoneNumber(string Phone, string expected)
+        {
+            try
+            {
+                string Phonepattern = @"^\+?\d{0,2}\-?\d{4,5}\-?\d{5,6}"; //Define Pattern 
+                bool actual = Program.PatternValidation(Phone, Phonepattern); //passing parameter
+            }
+            catch (InvalidDataException ex)
+            {
+
+                Assert.AreEqual(expected, ex.Message); // section verifies that the action of the method under test behaves as expected.
+            }
+
+        }
+
 
     }
 }
