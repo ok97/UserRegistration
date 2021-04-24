@@ -124,7 +124,7 @@ namespace UnitTestUserRegistrationProblem
         public void UnitTestPatternValidation_ValidPassword(string Password, bool expected)
         {
             
-            string Passwordpattern = @"[a-z]+"; //Define Pattern
+            string Passwordpattern = @"[a-z]+"; //Define Pattern @"[A-Z]+"
 
             bool actual = Program.PatternValidation(Password, Passwordpattern); //passing parameter
 
@@ -154,6 +154,38 @@ namespace UnitTestUserRegistrationProblem
         /* UC6:- As a User need to follow pre-defined Password rules.
                  Rule2 – Should have at least 1 Upper Case.
          */
+        [TestMethod]
+        [DataRow("Hello", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        
+        public void UnitTestPatternValidation_ValidPasswordRule2(string Password, bool expected)
+        {
+
+            string Passwordpattern = @"(?=.*[a-z])(?=.*[A-Z])"; //Define Pattern @"[A-Z]+"
+
+            bool actual = Program.PatternValidation(Password, Passwordpattern); //passing parameter
+
+            Assert.AreEqual(expected, actual);  // section verifies that the action of the method under test behaves as expected.
+        }
+
+        // Invalid Password
+        [TestMethod]
+        //[DataRow("AB", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("14abcde", "Invalid")]
+       // [DataRow("123456Ac", "Invalid")]
+        public void UnitTestPatternValidation_InValidPasswordRule2(string Phone, string expected)
+        {
+            try
+            {
+                string Passwordpattern = @"(?=.*[a-z])(?=.*[A-Z])"; //Define Pattern 
+                bool actual = Program.PatternValidation(Phone, Passwordpattern); //passing parameter
+            }
+            catch (InvalidDataException ex)
+            {
+
+                Assert.AreEqual(expected, ex.Message); // section verifies that the action of the method under test behaves as expected.
+            }
+        }
+
 
     }
 }
