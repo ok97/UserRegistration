@@ -11,7 +11,7 @@ namespace UnitTestUserRegistrationProblem
          */
         [TestMethod]
         [DataRow("Omp", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("Omprakash", true)]        
+        [DataRow("Omprakash", true)]
         public void UnitTestPatternValidation_ValidName(string FirstName, bool expected)
         {
             string FirstNamePattern = @"^[A-Z][a-z ]{2,}$"; //Define Pattern
@@ -61,8 +61,8 @@ namespace UnitTestUserRegistrationProblem
         //Invalid Email
         [TestMethod]
         [DataRow(".@gmail.com", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("abc123@.com.com", "Invalid")]        
-        [DataRow("abc.@gmail.com", "Invalid")]        
+        [DataRow("abc123@.com.com", "Invalid")]
+        [DataRow("abc.@gmail.com", "Invalid")]
         public void UnitTestPatternValidation_InvalidEmail(string Email, string expected)
         {
             try
@@ -83,9 +83,9 @@ namespace UnitTestUserRegistrationProblem
    */
         [TestMethod]
         [DataRow("+918788616249", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("8788616249", true)]      
-        [DataRow("919919819801", true)]      
-       // [DataRow("878849", true)]      
+        [DataRow("8788616249", true)]
+        [DataRow("919919819801", true)]
+        // [DataRow("878849", true)]      
         public void UnitTestPatternValidation_ValidPhoneNumber(string Phone, bool expected)
         {
             string Phonepattern = @"^\+?\d{0,2}\-?\d{4,5}\-?\d{5,6}"; //Define Pattern 
@@ -98,7 +98,7 @@ namespace UnitTestUserRegistrationProblem
         // Invalid Phone Number
         [TestMethod]
         [DataRow("12", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("123456789", "Invalid")]        
+        [DataRow("123456789", "Invalid")]
         public void UnitTestPatternValidation_InValidPhoneNumber(string Phone, string expected)
         {
             try
@@ -110,20 +110,20 @@ namespace UnitTestUserRegistrationProblem
             {
 
                 Assert.AreEqual(expected, ex.Message); // section verifies that the action of the method under test behaves as expected.
-            }           
+            }
         }
 
 
-      /*  UC5:- As a User need to follow pre-defined Password rules.
-                Rule1 – minimum 8 Characters 
-                - NOTE – All rules must be passed
-         */
+        /*  UC5:- As a User need to follow pre-defined Password rules.
+                  Rule1 – minimum 8 Characters 
+                  - NOTE – All rules must be passed
+           */
         [TestMethod]
         [DataRow("abcdefgh", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-             
+
         public void UnitTestPatternValidation_ValidPassword(string Password, bool expected)
         {
-            
+
             string Passwordpattern = @"[a-z]+"; //Define Pattern @"[A-Z]+"
 
             bool actual = Program.PatternValidation(Password, Passwordpattern); //passing parameter
@@ -156,7 +156,7 @@ namespace UnitTestUserRegistrationProblem
          */
         [TestMethod]
         [DataRow("Hello", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        
+
         public void UnitTestPatternValidation_ValidPasswordRule2(string Password, bool expected)
         {
 
@@ -199,7 +199,6 @@ namespace UnitTestUserRegistrationProblem
             Assert.AreEqual(expected, actual);  // section verifies that the action of the method under test behaves as expected.
         }
 
-
         // Invalid Password
         [TestMethod]
         [DataRow("abcde", "Invalid")]
@@ -218,6 +217,42 @@ namespace UnitTestUserRegistrationProblem
             }
         }
 
+        /* UC7:- As a User need to follow pre-defined Password rules.
+                 - Rule4 – Has exactly 1 Special Character 
+                 NOTE – All rules must be passed
+        */
+        [TestMethod]
+        [DataRow("Hello world$123", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("123Aa$Aa", true)]
+        [DataRow("123Aa$Aa", true)]
 
+        public void UnitTestPatternValidation_ValidPasswordRule4(string Password, bool expected)
+        {
+            string Passwordpattern = @"(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+=\[{\]};:<>|./?,-])"; //Define Pattern @"[A-Z]+"
+
+            bool actual = Program.PatternValidation(Password, Passwordpattern); //passing parameter
+
+            Assert.AreEqual(expected, actual);  // section verifies that the action of the method under test behaves as expected.
+        }
+
+        // Invalid Password
+        [TestMethod]
+         [DataRow("abcde", "Invalid")]
+        [DataRow("Ac", "Invalid")]
+        [DataRow("12345678", "Invalid")]
+        public void UnitTestPatternValidation_InValidPasswordRule4(string Phone, string expected)
+        {
+            try
+            {
+                string Passwordpattern = @"(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+=\[{\]};:<>|./?,-])"; //Define Pattern @"[A-Z]+"
+                bool actual = Program.PatternValidation(Phone, Passwordpattern); //passing parameter
+            }
+            catch (InvalidDataException ex)
+            {
+
+                Assert.AreEqual(expected, ex.Message); // section verifies that the action of the method under test behaves as expected.
+
+            }
+        }
     }
 }
