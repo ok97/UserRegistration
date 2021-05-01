@@ -3,8 +3,9 @@ using System;
 using User_Registration_Problem;
 
 namespace UnitTestUserRegistrationProblem
-{/*    UC12:- Refactor the Code to throw customexceptions in case of Invalid User Details 
-              - Rewrite all Test Cases to take in Custom Exception for Invalid First Name, Last Name, Email, Mobile, and Password
+{
+    /* UC13:- Refactor the Code to use Lambda Function to validate User Entry
+              - Use Lambda Function to validate First Name, Last Name, Email, Mobile, and Password
     */
     [TestClass]
     public class UnitTest1
