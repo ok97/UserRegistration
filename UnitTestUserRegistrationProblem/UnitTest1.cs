@@ -3,12 +3,13 @@ using System;
 using User_Registration_Problem;
 
 namespace UnitTestUserRegistrationProblem
-{
+{/*    UC12:- Refactor the Code to throw customexceptions in case of Invalid User Details 
+              - Rewrite all Test Cases to take in Custom Exception for Invalid First Name, Last Name, Email, Mobile, and Password
+    */
     [TestClass]
     public class UnitTest1
     {
-        /*  UC1:- As a User need to enter a valid First Name - First name starts with Cap and has minimum 3 characters
-         */
+        
         [TestMethod]
         [DataRow("Omp", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
         [DataRow("Omprakash", true)]
@@ -22,9 +23,9 @@ namespace UnitTestUserRegistrationProblem
 
         //Invalid Names
         [TestMethod]
-        [DataRow("omp", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("ok", "Invalid")]
-        [DataRow(".dfgjs", "Invalid")]
+        [DataRow("omp", "Invalid User Details")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("ok", "Invalid User Details")]
+        [DataRow(".dfgjs", "Invalid User Details")]
         public void UnitTestPatternValidation_InvalidName(string FirstName, string expected)
         {
             try
@@ -41,9 +42,7 @@ namespace UnitTestUserRegistrationProblem
         }
 
 
-        /*  UC3:- As a User need to enter a valid email - E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts 
-                  (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions
-         */
+       
         [TestMethod]
         [DataRow("omkhawshi@gmail.com", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
         [DataRow("abc-100@yahoo.com", true)]
@@ -60,9 +59,9 @@ namespace UnitTestUserRegistrationProblem
 
         //Invalid Email
         [TestMethod]
-        [DataRow(".@gmail.com", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("abc123@.com.com", "Invalid")]
-        [DataRow("abc.@gmail.com", "Invalid")]
+        [DataRow(".@gmail.com", "Invalid User Details")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("abc123@.com.com", "Invalid User Details")]
+        [DataRow("abc.@gmail.com", "Invalid User Details")]
         public void UnitTestPatternValidation_InvalidEmail(string Email, string expected)
         {
             try
@@ -78,9 +77,7 @@ namespace UnitTestUserRegistrationProblem
 
         }
 
-        /*  UC4:- As a User need to follow pre -defined Mobile Format 
-                  - E.g. 919919819801 - Country code follow by space and 10 digit number
-   */
+        
         [TestMethod]
         [DataRow("+918788616249", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
         [DataRow("8788616249", true)]
@@ -97,8 +94,8 @@ namespace UnitTestUserRegistrationProblem
 
         // Invalid Phone Number
         [TestMethod]
-        [DataRow("12", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("123456789", "Invalid")]
+        [DataRow("12", "Invalid User Details")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("123456789", "Invalid User Details")]
         public void UnitTestPatternValidation_InValidPhoneNumber(string Phone, string expected)
         {
             try
@@ -114,10 +111,6 @@ namespace UnitTestUserRegistrationProblem
         }
 
 
-        /*  UC5:- As a User need to follow pre-defined Password rules.
-                  Rule1 – minimum 8 Characters 
-                  - NOTE – All rules must be passed
-           */
         [TestMethod]
         [DataRow("abcdefgh", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
 
@@ -134,9 +127,9 @@ namespace UnitTestUserRegistrationProblem
 
         // Invalid Password
         [TestMethod]
-        [DataRow("AB", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
-        [DataRow("ABCSD", "Invalid")]
-        [DataRow("123456Ac", "Invalid")]
+        [DataRow("AB", "Invalid User Details")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow("ABCSD", "Invalid User Details")]
+        [DataRow("123456Ac", "Invalid User Details")]
         public void UnitTestPatternValidation_InValidPassword(string Phone, string expected)
         {
             try
@@ -151,9 +144,7 @@ namespace UnitTestUserRegistrationProblem
             }
         }
 
-        /* UC6:- As a User need to follow pre-defined Password rules.
-                 Rule2 – Should have at least 1 Upper Case.
-         */
+       
         [TestMethod]
         [DataRow("Hello", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
 
@@ -169,8 +160,8 @@ namespace UnitTestUserRegistrationProblem
 
         // Invalid Password
         [TestMethod]
-        [DataRow("14abcde", "Invalid")]
-        [DataRow("123456Ac", "Invalid")]
+        [DataRow("14abcde", "Invalid User Details")]
+        [DataRow("123456Ac", "Invalid User Details")]
         public void UnitTestPatternValidation_InValidPasswordRule2(string Phone, string expected)
         {
             try
@@ -184,9 +175,7 @@ namespace UnitTestUserRegistrationProblem
                 Assert.AreEqual(expected, ex.Message); // section verifies that the action of the method under test behaves as expected.
             }
         }
-        /* UC6:- As a User need to follow pre-defined Password rules.
-                 - Rule3 – Should have at least 1 numeric number in the password.
-         */
+       
         [TestMethod]
         [DataRow("Hello1", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
         [DataRow("14Aabcde", true)]
@@ -201,8 +190,8 @@ namespace UnitTestUserRegistrationProblem
 
         // Invalid Password
         [TestMethod]
-        [DataRow("abcde", "Invalid")]
-        [DataRow("Ac", "Invalid")]
+        [DataRow("abcde", "Invalid User Details")]
+        [DataRow("Ac", "Invalid User Details")]
         public void UnitTestPatternValidation_InValidPasswordRule3(string Phone, string expected)
         {
             try
@@ -217,10 +206,7 @@ namespace UnitTestUserRegistrationProblem
             }
         }
 
-        /* UC7:- As a User need to follow pre-defined Password rules.
-                 - Rule4 – Has exactly 1 Special Character 
-                 NOTE – All rules must be passed
-        */
+       
         [TestMethod]
         [DataRow("Hello world$123", true)]   //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
         [DataRow("123Aa$Aa", true)]
@@ -237,9 +223,9 @@ namespace UnitTestUserRegistrationProblem
 
         // Invalid Password
         [TestMethod]
-         [DataRow("abcde", "Invalid")]
-        [DataRow("Ac", "Invalid")]
-        [DataRow("12345678", "Invalid")]
+         [DataRow("abcde", "Invalid User Details")]
+        [DataRow("Ac", "Invalid User Details")]
+        [DataRow("12345678", "Invalid User Details")]
         public void UnitTestPatternValidation_InValidPasswordRule4(string Phone, string expected)
         {
             try
@@ -261,7 +247,7 @@ namespace UnitTestUserRegistrationProblem
          */
         //Invalid Email
         [TestMethod]
-        [DataRow(".@gmail.com abc123@.com.com abc.@gmail.com", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+        [DataRow(".@gmail.com abc123@.com.com abc.@gmail.com", "Invalid User Details")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
        
         public void UnitTestPatternValidation_InvalidEmailmultipleentry(string Email, string expected)
         {
