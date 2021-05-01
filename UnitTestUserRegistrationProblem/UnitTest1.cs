@@ -254,5 +254,29 @@ namespace UnitTestUserRegistrationProblem
 
             }
         }
+
+
+
+        /* UC11:- Write JUnit  Parameterised Test to  validate multiple entry for the Email Address. 
+         */
+        //Invalid Email
+        [TestMethod]
+        [DataRow(".@gmail.com abc123@.com.com abc.@gmail.com", "Invalid")]  //add parameters using the [DataRow] attribute values from the [DataRow] attribute will be passed to the test method
+       
+        public void UnitTestPatternValidation_InvalidEmailmultipleentry(string Email, string expected)
+        {
+            try
+            {
+                string Epattern = @"^[a-z]+([-+*.]?[0-9a-z])*@[a-z0-9]+\.(\.?[a-z]{2,}){1,2}$"; //Define Pattern
+                bool actual = Program.PatternValidation(Email, Epattern); //passing parameter
+            }
+            catch (InvalidDataException ex)
+            {
+
+                Assert.AreEqual(expected, ex.Message); // section verifies that the action of the method under test behaves as expected.
+            }
+
+        }
+
     }
 }
